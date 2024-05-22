@@ -64,8 +64,22 @@ const techStackIcons = {
     'next-themes': <DiReact className="w-6 h-6" />,
 };
 
-const ProjectModal = ({ project, onClose }) => {
-    const modalRef = useRef(null);
+interface Project {
+    title: string;
+    thumbnail: string;
+    description: string;
+    techStack: string[];
+    liveSite: string;
+    github: string;
+}
+
+interface ProjectModalProps {
+    project: Project;
+    onClose: () => void;
+}
+
+const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
+    const modalRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         if (modalRef.current) {
@@ -75,8 +89,8 @@ const ProjectModal = ({ project, onClose }) => {
 
     if (!project) return null;
 
-    const categorizeTechStack = (stack) => {
-        const categories = {
+    const categorizeTechStack = (stack: string[]) => {
+        const categories: Record<string, string[]> = {
             'Frameworks': [],
             'Languages': [],
             'Styling': [],
