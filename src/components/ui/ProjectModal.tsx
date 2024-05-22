@@ -11,7 +11,59 @@ import { GrMysql } from "react-icons/gr";
 import { MdSecurity } from 'react-icons/md';
 import { DiHtml5, DiCss3, DiReact, DiNodejsSmall } from 'react-icons/di';
 
-const techStackIcons = {
+type TechStackKey =
+    | 'MongoDB'
+    | 'Express'
+    | 'React'
+    | 'Node.js'
+    | 'Next.js'
+    | 'JavaScript'
+    | 'TypeScript'
+    | 'HTML'
+    | 'CSS'
+    | 'Java'
+    | 'PostgreSQL'
+    | 'Spring Boot'
+    | 'Tailwind CSS'
+    | 'Redux'
+    | 'AWS'
+    | 'Linux'
+    | 'Docker'
+    | 'C++'
+    | 'Vue.js'
+    | 'Prisma'
+    | 'Stripe'
+    | 'Radix UI'
+    | 'Uploadthing'
+    | 'React Hook Form'
+    | 'Clerk'
+    | 'PostCSS'
+    | 'Autoprefixer'
+    | 'ESLint'
+    | 'Prettier'
+    | 'html2canvas'
+    | 'lucide-react'
+    | 're-resizable'
+    | 'react-ace'
+    | 'react-outside-click-handler'
+    | 'react-query'
+    | '@formkit/auto-animate'
+    | 'radix-ui/react-select'
+    | 'axios'
+    | 'cheerio'
+    | 'mongoose'
+    | 'nodemailer'
+    | 'react-responsive-carousel'
+    | '@headlessui/react'
+    | '@heroicons/react'
+    | 'Mailchimp Marketing API'
+    | 'GSAP'
+    | 'react-social-icons'
+    | '@dnd-kit'
+    | 'clsx'
+    | 'next-themes';
+
+const techStackIcons: Record<TechStackKey, JSX.Element> = {
     'MongoDB': <SiMongodb className="w-6 h-6" />,
     'Express': <SiSpringboot className="w-6 h-6" />,
     'React': <FaReact className="w-6 h-6" />,
@@ -151,7 +203,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
                                         <ul className="tech-stack">
                                             {categorizedTechStack[category].map((tech, index) => (
                                                 <li key={index} className="tech-stack-icon">
-                                                    {techStackIcons[tech]}
+                                                    {techStackIcons[tech as TechStackKey]}
                                                     <span>{tech}</span>
                                                 </li>
                                             ))}
