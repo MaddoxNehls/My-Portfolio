@@ -11,7 +11,6 @@ export const HeroParallax = ({
 }: {
     products: {
         title: string;
-        link: string;
         thumbnail: string;
     }[];
 }) => {
@@ -82,7 +81,6 @@ const ProductCard = ({
 }: {
     product: {
         title: string;
-        link: string;
         thumbnail: string;
         description: string;
         techStack: string[];
