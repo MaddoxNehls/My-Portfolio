@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { FaJava, FaReact, FaNodeJs, FaAws, FaPython, FaHtml5, FaCss3Alt, FaLinux, FaDocker, FaCuttlefish } from 'react-icons/fa';
 import { SiPostgresql, SiSpringboot, SiTailwindcss, SiRedux, SiMongodb, SiTypescript, SiReact, SiNextdotjs, SiCplusplus } from 'react-icons/si';
 import { IoLogoJavascript, IoLogoVue } from "react-icons/io5";
@@ -33,7 +33,12 @@ export function SkillsSection() {
     );
 }
 
-const Section = ({ title, children }) => (
+interface SectionProps {
+    title: string;
+    children: ReactNode;
+}
+
+const Section: React.FC<SectionProps> = ({ title, children }) => (
     <div className="mb-12">
         <h2 className="text-xl font-semibold dark:text-gray-200">{title}</h2>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 mt-4">
@@ -42,7 +47,15 @@ const Section = ({ title, children }) => (
     </div>
 );
 
-const SkillCard = ({ item }) => (
+interface SkillCardProps {
+    item: {
+        title: string;
+        link: string;
+        icon: ReactNode;
+    };
+}
+
+const SkillCard: React.FC<SkillCardProps> = ({ item }) => (
     <Link
         href={item.link}
         className="relative mx-auto flex h-[10rem] w-full max-w-full flex-col items-start border border-black/[0.2] p-3 dark:border-white/[0.2] transform transition-transform hover:scale-105 hover:shadow-lg active:scale-95"
