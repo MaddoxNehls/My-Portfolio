@@ -82,10 +82,10 @@ const ProductCard = ({
     product: {
         title: string;
         thumbnail: string;
-        description: string;
-        techStack: string[];
-        github: string;
-        liveSite: string;
+        description?: string;
+        techStack?: string[];
+        github?: string;
+        liveSite?: string;
     };
     translate: MotionValue<number>;
 }) => {
@@ -116,7 +116,18 @@ const ProductCard = ({
                 <div className="pointer-events-none absolute inset-0 size-full bg-black opacity-0 group-hover/product:opacity-80"></div>
                 <h2 className="absolute bottom-4 left-4 text-white opacity-0 group-hover/product:opacity-100">{product.title}</h2>
             </motion.div>
-            {isModalOpen && <ProjectModal project={product} onClose={() => setIsModalOpen(false)} />}
+            {isModalOpen && (
+                <ProjectModal
+                    project={{
+                        ...product,
+                        description: product.description || 'No description available',
+                        techStack: product.techStack || [],
+                        github: product.github || '#',
+                        liveSite: product.liveSite || '#',
+                    }}
+                    onClose={() => setIsModalOpen(false)}
+                />
+            )}
         </>
     );
 };
