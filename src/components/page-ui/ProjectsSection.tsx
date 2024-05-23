@@ -26,7 +26,7 @@ const products = [
       'React'
     ],
     github: 'https://github.com/MaddoxNehls/My-Portfolio',
-    liveSite: 'https://next-event.live'
+    liveSite: 'https://maddoxnehls.vercel.app/'
   },
   {
     title: 'FormBuilder',
