@@ -10,7 +10,8 @@ const products = [
   {
     title: 'This Portfolio',
     thumbnail: '/opengraph-image.png',
-    description: "I've crafted this site using Next.js, leveraging JavaScript and TypeScript for a robust frontend and backend. Styled with Tailwind CSS and PostCSS, it offers a sleek, responsive design. Enhanced with Material-UI components, radix-ui, and animated with framer-motion, it provides a dynamic user experience. Form management is seamless with react-hook-form and zod. Ensuring quality with ESLint, Prettier, and Autoprefixer, my portfolio showcases my commitment to excellence in web development.",
+    description:
+      "I've crafted this site using Next.js, leveraging JavaScript and TypeScript for a robust frontend and backend. Styled with Tailwind CSS and PostCSS, it offers a sleek, responsive design. Enhanced with Material-UI components, radix-ui, and animated with framer-motion, it provides a dynamic user experience. Form management is seamless with react-hook-form and zod. Ensuring quality with ESLint, Prettier, and Autoprefixer, my portfolio showcases my commitment to excellence in web development.",
     techStack: [
       'Next.js',
       'JavaScript',
