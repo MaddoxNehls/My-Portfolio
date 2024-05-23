@@ -16,16 +16,15 @@
     ]
   },
   "overrides": [
-    // Configuration for TypeScript files
     {
-      "files": [ "**/*.ts", "**/*.tsx" ],
+      "files": ["**/*.ts", "**/*.tsx"],
       "plugins": [
         "@typescript-eslint",
         "simple-import-sort",
         "tailwindcss",
         "unused-imports"
       ],
-      "extends": [ "plugin:tailwindcss/recommended" ],
+      "extends": ["plugin:tailwindcss/recommended"],
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
         "project": "./tsconfig.json"
@@ -42,11 +41,14 @@
             "printWidth": 150,
             "semi": true,
             "singleQuote": true,
-            "tabWidth": 4,
+            "tabWidth": 2,
             "trailingComma": "none"
           }
         ],
-        "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" } ],
+        "@typescript-eslint/no-unused-vars": [
+          "error",
+          { "argsIgnorePattern": "^_" }
+        ],
         "@typescript-eslint/no-explicit-any": "off",
         "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
         "react/react-in-jsx-scope": "off",

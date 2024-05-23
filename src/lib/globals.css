@@ -3,7 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -16,7 +17,9 @@ html {
 body {
   background: hsl(var(--background));
   color: hsl(var(--foreground));
-  transition: background 0.3s ease, color 0.3s ease;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 @layer base {
@@ -106,7 +109,9 @@ body {
   }
 }
 
-.download-cv, .contact-me, .submit {
+.download-cv,
+.contact-me,
+.submit {
   @apply bg-primary text-primary-foreground;
 }
 
