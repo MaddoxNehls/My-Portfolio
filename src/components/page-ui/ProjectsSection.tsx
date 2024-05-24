@@ -31,7 +31,7 @@ const products = [
   },
   {
     title: 'FormBuilder',
-    thumbnail: '/projects/FormBuilder.png',
+    thumbnail: '/projects/FormBuilder.PNG',
     description:
       'A full-stack application that allows users to create, customize, and manage forms with a drag-and-drop interface. Users can design forms with various fields, preview them, share URLs, and track form statistics. The application supports form validation, submission tracking, and responsive design for optimal user experience.',
     techStack: [
