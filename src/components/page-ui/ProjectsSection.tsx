@@ -55,6 +55,26 @@ const products = [
     liveSite: 'https://form-builder-full-stack.vercel.app/'
   },
   {
+    title: 'NehlsNav',
+    thumbnail: '/projects/NehlsNav.png',
+    description:
+      'A comprehensive ride-sharing platform that leverages Next.js for server-side rendering and Tailwind CSS for a modern, responsive design. The application integrates Google Maps for real-time location tracking and Stripe for payment processing, providing a seamless user experience with features such as dynamic pricing and route optimization.',
+    techStack: [
+      'Next.js',
+      'JavaScript',
+      'TypeScript',
+      'Tailwind CSS',
+      'PostCSS',
+      'Stripe',
+      'Google Maps API,',
+      'Font Awesome',
+      'ESLint',
+      'Autoprefixer'
+    ],
+    github: 'https://github.com/MaddoxNehls/NehlsNav',
+    liveSite: 'https://nehls-nav.vercel.app/'
+  },
+  {
     title: 'CodeToImage',
     thumbnail: '/projects/CodeToImage.png',
     description:
@@ -78,57 +98,6 @@ const products = [
     ],
     github: 'https://github.com/MaddoxNehls/Code-To-Image-App',
     liveSite: 'https://code-to-image-app.vercel.app/'
-  },
-  {
-    title: 'Country Information App',
-    thumbnail: '/projects/CountryInfo.png',
-    description:
-      'A dynamic web application providing detailed information on countries worldwide. Features include dark and light modes, a search function, region-based filtering, and responsive design. Users can view comprehensive country details, including flags and key statistics, with skeleton loading components enhancing the user experience. The app leverages dynamic routes for seamless navigation and is built for both desktop and mobile use.',
-    techStack: [
-      'Next.js',
-      'React',
-      'Node.js',
-      'MongoDB',
-      'JavaScript',
-      'TypeScript',
-      'Tailwind CSS',
-      'PostCSS',
-      'react-query',
-      'radix-ui/react-select',
-      'lucide-react',
-      'react-icons',
-      'clsx',
-      'ESLint',
-      'Autoprefixer'
-    ],
-    github: 'https://github.com/MaddoxNehls/NextJS-Country-Information-App',
-    liveSite: 'https://next-js-country-information-app.vercel.app/'
-  },
-  {
-    title: 'Ecommerce Price Tracker - PriceWise',
-    thumbnail: '/projects/PriceWise.png',
-    description:
-      "A comprehensive Next.js 13 application designed for tracking eCommerce product prices. Utilizing web scraping with Bright Data's Web Unlocker, the app notifies users about price drops and stock status. Key features include product scraping, email notifications, and automated cron jobs to ensure timely updates. This tool helps users make informed purchasing decisions by providing up-to-date product information and price alerts.",
-    techStack: [
-      'Next.js',
-      'React',
-      'Node.js',
-      'MongoDB',
-      'JavaScript',
-      'TypeScript',
-      'Tailwind CSS',
-      'PostCSS',
-      'axios',
-      'cheerio',
-      'mongoose',
-      'nodemailer',
-      'react-responsive-carousel',
-      'HeadlessUI',
-      'ESLint',
-      'Autoprefixer'
-    ],
-    github: 'https://github.com/MaddoxNehls/eCommerce-Price-Tracker',
-    liveSite: 'https://e-commerce-price-tracker-web-scraper.vercel.app/'
   },
   {
     title: 'Evently',
@@ -156,6 +125,32 @@ const products = [
     ],
     github: 'https://github.com/MaddoxNehls/Events-App',
     liveSite: 'https://events-app-woad.vercel.app/'
+  },
+  {
+    title: 'Ecommerce Price Tracker - PriceWise',
+    thumbnail: '/projects/PriceWise.png',
+    description:
+      "A comprehensive Next.js 13 application designed for tracking eCommerce product prices. Utilizing web scraping with Bright Data's Web Unlocker, the app notifies users about price drops and stock status. Key features include product scraping, email notifications, and automated cron jobs to ensure timely updates. This tool helps users make informed purchasing decisions by providing up-to-date product information and price alerts.",
+    techStack: [
+      'Next.js',
+      'React',
+      'Node.js',
+      'MongoDB',
+      'JavaScript',
+      'TypeScript',
+      'Tailwind CSS',
+      'PostCSS',
+      'axios',
+      'cheerio',
+      'mongoose',
+      'nodemailer',
+      'react-responsive-carousel',
+      'HeadlessUI',
+      'ESLint',
+      'Autoprefixer'
+    ],
+    github: 'https://github.com/MaddoxNehls/eCommerce-Price-Tracker',
+    liveSite: 'https://e-commerce-price-tracker-web-scraper.vercel.app/'
   },
   {
     title: 'TierMaker',
@@ -207,10 +202,10 @@ const products = [
     liveSite: 'https://newsletter-app-chi.vercel.app/'
   },
   {
-    title: 'YouTube SideBar',
-    thumbnail: '/projects/YTSidebar.png',
+    title: 'Country Information App',
+    thumbnail: '/projects/CountryInfo.png',
     description:
-      'An interactive and adaptable YouTube sidebar clone built with Next.js, Tailwind CSS, and TypeScript. This project features a fully responsive sidebar that looks great on any device. The sidebar includes a menu button to toggle its visibility, active state indicators for navigation items, hover effects, and dynamic rendering based on the current route.',
+      'A dynamic web application providing detailed information on countries worldwide. Features include dark and light modes, a search function, region-based filtering, and responsive design. Users can view comprehensive country details, including flags and key statistics, with skeleton loading components enhancing the user experience. The app leverages dynamic routes for seamless navigation and is built for both desktop and mobile use.',
     techStack: [
       'Next.js',
       'React',
@@ -220,12 +215,15 @@ const products = [
       'TypeScript',
       'Tailwind CSS',
       'PostCSS',
-      'clsx',
+      'react-query',
+      'radix-ui/react-select',
+      'lucide-react',
       'react-icons',
+      'clsx',
       'ESLint',
       'Autoprefixer'
     ],
-    github: 'https://github.com/MaddoxNehls/yt-sidebar-clone-practice',
-    liveSite: 'https://yt-sidebar-clone-practice.vercel.app/'
+    github: 'https://github.com/MaddoxNehls/NextJS-Country-Information-App',
+    liveSite: 'https://next-js-country-information-app.vercel.app/'
   }
 ];
