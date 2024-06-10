@@ -75,7 +75,7 @@ const experience = [
     badge: 'MissionNext/Nov 2023 - Feb 2024'
   },
   {
-    title: 'Software Engineer',
+    title: 'Software Engineer Intern',
     description: (
       <ul className="list-disc">
         <li>Leveraged technical expertise to provide valuable career insights to underserved youth aspiring to enter the tech industry.</li>
@@ -86,7 +86,7 @@ const experience = [
         <li>Engaged in educational initiatives to enhance technical knowledge and career readiness for students.</li>
       </ul>
     ),
-    badge: 'CareerVillage.org - Volunteer/Sep 2022 - Sep 2023'
+    badge: 'CareerVillage - Volunteer/Sep 2022 - Sep 2023'
   },
   {
     title: 'Engineering Undergraduate Teaching Assistant',
