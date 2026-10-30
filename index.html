@@ -1,0 +1,786 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>Maddox Nehls · Software Engineer</title><meta name="description" content="Maddox Nehls, a software engineer in Beaverton, Oregon. Projects, career, and resume."><meta property="og:title" content="Maddox Nehls · Software Engineer"><meta property="og:description" content="Projects, career, and resume."><meta property="og:image" content="/img/me.webp"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect width=%2232%22 height=%2232%22 rx=%227%22 fill=%22%2318181b%22/%3E%3Ctext x=%2216%22 y=%2222%22 font-family=%22Arial%22 font-size=%2216%22 font-weight=%22700%22 fill=%22%23fafafa%22 text-anchor=%22middle%22%3EM%3C/text%3E%3C/svg%3E"><style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style></head><body>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;500;600&family=Chivo+Mono:wght@400;500&display=swap">
+<style>
+/* Instruments v2. A row of panels sized to what they hold. Details open as a sheet that rises inside its panel
+   while the panel behind it steps back. Tokens follow a zinc scale; cards get a hairline ring and a soft bottom bevel. */
+:root{
+  --bg:#09090b;--fg:#18181b;--lift:#27272a;--lift-h:#323236;--sunk:#000;--line:#27272a;--line-2:#3f3f46;--dot:#3f3f46;
+  --t1:#fafafa;--t2:#d4d4d8;--t3:#71717a;--lab:#a1a1aa;--acc:#84cc16;--acc-d:#65a30d;
+  --hatch:#ffffff1f;--glass:#27272ab8;--lab-sh:#09090b;--blue:#60a5fa;--on-blue:#09090b;--on-acc:#0a0a0a;
+  --sh-card:0 0 0 .75px #0006,0 -2px .5px 0 #ffffff0d inset,0 -3.5px .5px 0 #0003 inset;
+  --sh-lift:0 10px 30px #0008,0 2px 6px #0006;
+  --sans:"Chivo","Helvetica Neue",Arial,sans-serif;--mono:"Chivo Mono",ui-monospace,Consolas,monospace;
+  --ease:cubic-bezier(.4,0,.2,1);--sheet:cubic-bezier(.32,.72,0,1);
+  --gut:max(24px,env(safe-area-inset-left,0px));--gut-r:max(24px,env(safe-area-inset-right,0px));
+  color-scheme:dark}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){
+  --bg:#e4e4e7;--fg:#fafafa;--lift:#fff;--lift-h:#f4f4f5;--sunk:#27272a;--line:#d4d4d8;--line-2:#a1a1aa;--dot:#d4d4d8;
+  --t1:#27272a;--t2:#52525b;--t3:#71717a;--lab:#78716c;--acc:#65a30d;--acc-d:#4d7c0f;
+  --hatch:#0000001a;--glass:#ffffffb8;--lab-sh:#ffffff80;--blue:#2563eb;--on-blue:#fff;
+  --sh-card:0 0 0 .75px #00000029,0 -2px .5px 0 #fff6 inset,0 -3.5px .5px 0 #0000000a inset;
+  --sh-lift:0 10px 30px #0000001f,0 2px 6px #00000014;color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#e4e4e7;--fg:#fafafa;--lift:#fff;--lift-h:#f4f4f5;--sunk:#27272a;--line:#d4d4d8;--line-2:#a1a1aa;--dot:#d4d4d8;
+  --t1:#27272a;--t2:#52525b;--t3:#71717a;--lab:#78716c;--acc:#65a30d;--acc-d:#4d7c0f;
+  --hatch:#0000001a;--glass:#ffffffb8;--lab-sh:#ffffff80;--blue:#2563eb;--on-blue:#fff;
+  --sh-card:0 0 0 .75px #00000029,0 -2px .5px 0 #fff6 inset,0 -3.5px .5px 0 #0000000a inset;
+  --sh-lift:0 10px 30px #0000001f,0 2px 6px #00000014;color-scheme:light}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--t1);font:400 15px/1.55 var(--sans);-webkit-font-smoothing:antialiased;overflow:hidden;transition:background .3s var(--ease)}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-align:inherit}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+h1,h2,h3,h4,p{margin:0}
+:focus-visible{outline:2px solid var(--acc-d);outline-offset:2px}
+.ph{color:var(--t3);text-decoration:underline dotted var(--line-2);text-underline-offset:4px}
+svg.i{width:14px;height:14px;flex:none;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* shell */
+.app{height:calc(100dvh - env(safe-area-inset-top,0px) - env(safe-area-inset-bottom,0px));display:flex;flex-direction:column}
+.bar{flex:none;display:flex;align-items:center;gap:20px;height:64px;padding-left:var(--gut);padding-right:var(--gut-r)}
+.who{display:flex;align-items:center;gap:14px;white-space:nowrap;min-width:0}
+.who b{font-weight:500;color:var(--t2);letter-spacing:-.01em}
+.status{display:inline-flex;align-items:center;gap:7px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--t3)}
+.status i{width:6px;height:6px;border-radius:50%;background:var(--acc)}
+.map{position:relative;flex:1;max-width:640px;margin-inline:auto;display:flex;gap:2px;height:30px;padding:3px;border-radius:10px;corner-shape:squircle;background:color-mix(in oklab,var(--fg) 85%,transparent);box-shadow:var(--sh-card);touch-action:none;cursor:pointer;user-select:none}
+.seg{position:relative;z-index:1;flex:var(--g,1) 1 0;min-width:0;container-type:inline-size;display:flex;align-items:center;justify-content:center;border-radius:7px;color:var(--t3);transition:color .15s var(--ease)}
+.seg span{font-family:var(--mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 4px}
+@container (max-width:46px){.seg span{display:none}}
+.seg:hover{color:var(--t2)}
+.seg.in{color:var(--t1)}
+.seg.ping::after{content:"";position:absolute;top:4px;right:5px;width:5px;height:5px;border-radius:50%;background:var(--acc)}
+.lens{position:absolute;z-index:0;top:3px;bottom:3px;left:0;width:0;border-radius:7px;corner-shape:squircle;background:var(--lift);box-shadow:var(--sh-card);pointer-events:none}
+.tools{display:flex;align-items:center;gap:8px}
+.sb{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:28px;padding:0 11px;border-radius:8px;corner-shape:squircle;background:var(--lift);box-shadow:var(--sh-card);font-size:12.5px;font-weight:500;color:var(--t1);white-space:nowrap;transition:background .15s var(--ease),transform .15s var(--ease),opacity .15s}
+.sb:hover{background:var(--lift-h);transform:translateY(-1px)}
+.sb:active{transform:none}
+.sb[disabled]{opacity:.35;cursor:default;transform:none;background:var(--lift)}
+.sb.sq{width:28px;padding:0}
+.sb.ar{width:44px;padding:0}
+
+/* row of panels */
+.row{position:relative;flex:1;min-height:0;display:flex;gap:16px;overflow-x:auto;overflow-y:hidden;padding-left:var(--gut);padding-right:var(--gut-r);padding-block:0 24px;scroll-padding-inline:var(--gut) var(--gut-r);scrollbar-width:none;overscroll-behavior-x:contain}
+.row::-webkit-scrollbar{display:none}
+.p{--pw:var(--w);flex:0 0 var(--pw);position:relative;height:100%;border-radius:28px;corner-shape:squircle;overflow:hidden;background:var(--sunk);box-shadow:var(--sh-card);scroll-snap-align:start;transition:flex-basis .5s var(--sheet);animation:rise .8s var(--sheet) both;animation-delay:calc(var(--i) * 55ms)}
+@keyframes rise{from{opacity:0;transform:translateY(22px)}}
+@media (min-width:1100px){.p.wide{--pw:var(--w-open)}}
+.wrap{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;background:var(--fg);border-radius:inherit;corner-shape:squircle;scrollbar-width:none;transform-origin:50% 0;transition:transform .5s var(--sheet),filter .5s var(--sheet)}
+.wrap::-webkit-scrollbar{display:none}
+.p.open .wrap{transform:scale(.93) translateY(12px);filter:brightness(.55)}
+.hd{position:sticky;top:0;z-index:3;height:60px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 22px}
+.hd::before{content:"";position:absolute;inset:0;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);-webkit-mask-image:linear-gradient(#000 10%,transparent);mask-image:linear-gradient(#000 10%,transparent)}
+.hd::after{content:"";position:absolute;inset:0;background:linear-gradient(var(--fg),color-mix(in oklab,var(--fg) 60%,transparent) 55%,transparent)}
+.hd>*{position:relative;z-index:1}
+.lbl{font-size:12px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;color:var(--lab);text-shadow:0 1px 1px var(--lab-sh)}
+.meta{font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--t3);white-space:nowrap}
+.chip{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:999px;background:var(--lift);box-shadow:var(--sh-card);font-family:var(--mono);font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--t1)}
+.chip:hover{background:var(--lift-h)}
+.bd{padding:4px 22px 28px}
+
+/* shared bits */
+.card{background:var(--lift);box-shadow:var(--sh-card);border-radius:16px;corner-shape:squircle}
+.tap{transition:background .15s var(--ease),opacity .35s var(--ease),filter .35s var(--ease)}
+.tap:hover{background:var(--lift-h)}
+.k{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--lab)}
+.k::after{content:"";flex:1;border-top:1px dotted var(--dot)}
+.frs{display:grid;gap:9px}
+.fr{display:flex;align-items:center;gap:12px;min-width:0}
+.fr>span:first-child{flex:none;font-family:var(--mono);font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--t3)}
+.fr>i{flex:1;min-width:16px;border-top:1px dotted var(--dot)}
+.fr>span:last-child{font-size:14px;color:var(--t2);text-align:right;min-width:0}
+.fr a{text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:3px}
+.fr a:hover{color:var(--t1)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:40px;padding:0 15px;border-radius:10px;corner-shape:squircle;background:var(--lift);box-shadow:var(--sh-card);font-size:14px;font-weight:500;color:var(--t1);transition:background .15s var(--ease),transform .15s var(--ease)}
+.btn:hover{background:var(--lift-h);transform:translateY(-1px)}
+.btn:active{transform:none}
+.btn.ic{width:40px;padding:0}
+.btn svg{width:16px;height:16px}
+.lg{display:inline-flex;color:var(--t2)}
+.lg svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.ul li{position:relative;padding-left:16px;color:var(--t1);line-height:1.5}
+.ul li::before{content:"";position:absolute;left:2px;top:.66em;width:4px;height:4px;border-radius:50%;background:var(--t3)}
+
+/* about */
+.photo{aspect-ratio:1;border-radius:14px;corner-shape:squircle;overflow:hidden;background:var(--lift);box-shadow:var(--sh-card)}
+.photo img{width:100%;height:100%;object-fit:cover;object-position:50% 28%}
+.hello{font-size:20px;line-height:1.5;font-weight:500;color:var(--t1);margin:24px 0 12px;text-wrap:pretty}
+.sub{color:var(--t2);margin:0 0 20px}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px}
+.facts{display:grid;gap:22px}
+.fact .k{margin-bottom:7px}
+.fact p{color:var(--t1);line-height:1.45}
+
+/* projects */
+.pj{display:block;width:100%;padding:8px;margin-bottom:12px}
+.pj.dim{opacity:.28;filter:saturate(0)}
+.media{position:relative;container-type:inline-size;aspect-ratio:16/9;border-radius:10px;corner-shape:squircle;overflow:hidden;background:var(--bg);box-shadow:0 0 0 .5px var(--line)}
+.media>img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:opacity .2s var(--ease),transform .8s var(--sheet)}
+.pj:hover .media>img{transform:scale(1.015)}
+.th{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px;margin-top:6px}
+.th span{aspect-ratio:16/10;border-radius:6px;corner-shape:squircle;overflow:hidden;box-shadow:0 0 0 .5px var(--line);opacity:.6;transition:opacity .15s var(--ease)}
+.th span{position:relative}
+.th span.on,.th span:hover{opacity:1}
+.th span.on::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--acc);transform-origin:left;animation:reel var(--reel,3.2s) linear both}
+.pj.hold .th span.on::after,.pj:not(.play) .th span.on::after{animation-play-state:paused}
+@keyframes reel{from{transform:scaleX(0)}}
+.th img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.cap{display:flex;align-items:center;gap:9px;padding:11px 4px 3px}
+.cap b{font-weight:500;font-size:15px}
+.cap em{margin-left:auto;font-style:normal;font-size:13px;color:var(--t3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* data visuals for projects without screens */
+.viz{position:absolute;inset:0;padding:clamp(16px,4.2cqw,40px) clamp(18px,4.6cqw,44px);display:flex;flex-direction:column;justify-content:space-between;gap:10px;background:var(--bg)}
+.vt{font-family:var(--mono);font-size:clamp(10px,1.9cqw,13px);letter-spacing:.07em;text-transform:uppercase;color:var(--t3)}
+.vbig{font-size:clamp(36px,9.5cqw,84px);font-weight:500;letter-spacing:-.03em;line-height:1;color:var(--t1)}
+.vbig small{font-size:clamp(13px,2.4cqw,18px);letter-spacing:0;font-weight:400;color:var(--t3);margin-left:8px}
+.bars{display:grid;gap:clamp(7px,1.6cqw,14px)}
+.bars div{display:grid;grid-template-columns:clamp(96px,22cqw,170px) minmax(0,1fr) clamp(34px,6cqw,48px);align-items:center;gap:clamp(10px,2cqw,16px);font-size:clamp(12px,2.2cqw,15px);color:var(--t2)}
+.bars u{display:block;height:clamp(8px,1.7cqw,13px);border-radius:99px;width:var(--v);background:var(--line-2);transform-origin:left;transition:transform 1.1s var(--sheet)}
+.pj:not(.seen) .bars u{transform:scaleX(0)}
+.bars div:nth-child(2) u{transition-delay:.08s}.bars div:nth-child(3) u{transition-delay:.16s}.bars div:nth-child(4) u{transition-delay:.24s}
+.bars .me u{background:var(--acc-d)}
+.bars .ref u{background:repeating-linear-gradient(315deg,var(--hatch) 0 1px,transparent 0 50%) 0 0/6px 6px;box-shadow:0 0 0 .75px var(--line-2) inset}
+.bars em{font-style:normal;font-family:var(--mono);font-size:clamp(11px,2cqw,14px);color:var(--t3);text-align:right}
+.claim{font-size:clamp(16px,4.4cqw,34px);letter-spacing:-.01em;line-height:1.4;color:var(--t1);text-wrap:balance}
+.claim code{font-family:var(--mono);font-size:.85em;color:var(--t2)}
+.steps{display:flex;flex-wrap:wrap;align-items:center;gap:6px;list-style:none;margin:0;padding:0}
+.steps li{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:clamp(10.5px,1.9cqw,13px);letter-spacing:.04em;text-transform:uppercase;color:var(--t2);padding:clamp(5px,1cqw,8px) clamp(8px,1.6cqw,12px);border-radius:7px;background:var(--lift);box-shadow:var(--sh-card)}
+.steps li.ok{color:var(--acc)}
+.steps i{font-style:normal;color:var(--t3)}
+.steps li.ok i{color:var(--acc-d)}
+
+/* sheet: rises from the bottom of its panel */
+.sheet{position:absolute;left:0;right:0;bottom:0;z-index:4;max-height:calc(100% - 22px);touch-action:pan-y;display:flex;flex-direction:column;background:var(--fg);border-radius:24px 24px 0 0;corner-shape:squircle;box-shadow:var(--sh-card),0 -10px 30px #0000004d;transform:translateY(calc(100% + 40px));visibility:hidden;transition:transform .5s var(--sheet),visibility 0s .5s}
+.p.open .sheet{transform:none;visibility:visible;transition:transform .5s var(--sheet),visibility 0s}
+.sheet:focus{outline:none}
+.grab{position:absolute;top:0;left:0;right:0;z-index:2;height:56px;border-radius:24px 24px 0 0;cursor:grab;touch-action:none}
+.grab::before{content:"";position:absolute;inset:0;border-radius:inherit;-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);-webkit-mask-image:linear-gradient(#000 10%,transparent);mask-image:linear-gradient(#000 10%,transparent)}
+.grab::after{content:"";position:absolute;inset:0;border-radius:inherit;background:linear-gradient(var(--fg),color-mix(in oklab,var(--fg) 60%,transparent) 55%,transparent)}
+.grab i{position:absolute;z-index:1;left:50%;top:22px;width:44px;height:4px;margin-left:-22px;border-radius:2px;background:var(--line-2);transition:background .15s}
+.grab:hover i{background:var(--t3)}
+.sc{flex:0 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none;padding:64px 24px 104px}
+.sc::-webkit-scrollbar{display:none}
+.sh h3{font-size:24px;font-weight:500;letter-spacing:-.015em;line-height:1.2;margin-bottom:10px;text-wrap:balance}
+.sh .over{margin-bottom:10px}
+.lead{color:var(--t2);font-size:15.5px;line-height:1.65;margin-bottom:24px;max-width:62ch}
+.sh .frs{margin-bottom:34px}
+.sh h4{font-size:18px;font-weight:500;margin-bottom:14px}
+.fig{margin:0 0 22px}
+.fig .media{aspect-ratio:16/10}
+.fig .media:has(>img,>video){aspect-ratio:auto}.fig .media>img,.fig .media>video{display:block;height:auto}
+.fig figcaption{text-align:center;color:var(--t3);font-size:13px;margin-top:9px}
+.sh .k{margin:30px 0 12px}
+.sec{font-size:17px;font-weight:500;letter-spacing:-.005em;color:var(--t1);margin:34px 0 12px}
+.sh .body p{color:var(--t1);line-height:1.65;max-width:62ch}
+.big{padding:18px 20px;margin:4px 0 6px}
+.big b{display:block;font-size:44px;font-weight:500;letter-spacing:-.03em;line-height:1}
+.big span{display:block;color:var(--t3);font-size:13.5px;margin-top:8px}
+.seq{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:6px 0 4px}
+.seq span{font-family:var(--mono);font-size:13px;padding:6px 10px;border-radius:8px;background:var(--lift);box-shadow:var(--sh-card);color:var(--t2)}
+.seq span.x{text-decoration:line-through;text-decoration-color:var(--t3);color:var(--t3)}
+.seq span.ok{color:var(--acc)}
+.seq i{font-style:normal;color:var(--t3);font-size:12px}
+.links{display:flex;gap:8px;flex-wrap:wrap;margin-top:30px}
+.pill{position:absolute;left:50%;bottom:16px;z-index:3;display:flex;gap:4px;padding:4px;border-radius:999px;background:var(--glass);-webkit-backdrop-filter:blur(14px) saturate(1.3);backdrop-filter:blur(14px) saturate(1.3);box-shadow:var(--sh-card),var(--sh-lift);transform:translateX(-50%)}
+.pill button{display:grid;place-items:center;height:34px;padding:0 18px;border-radius:999px;background:var(--lift);box-shadow:var(--sh-card);font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--t1);white-space:nowrap;transition:background .15s var(--ease)}
+.pill button.ar{width:34px;padding:0}.pill button[hidden],.links [hidden]{display:none}
+.rs{background:#fff}.rs .hot{position:absolute;border-radius:3px;transition:background .15s}.rs .hot:hover,.rs .hot:focus-visible{background:#2563eb26;outline:1px solid #2563eb80}
+.pill button:hover{background:var(--lift-h)}
+
+/* hardest bug, inside a project sheet */
+.bug{padding:18px 20px 20px}
+.bug h5{font-size:17px;font-weight:500;margin:0 0 4px}
+.bug>p{color:var(--t3);font-size:14px;margin-bottom:6px}
+.bug .body{display:grid;gap:12px;margin-top:14px}
+.bug .body p{font-size:14.5px;color:var(--t2)}
+.bug .body b{font-weight:500;color:var(--t1)}
+.bug .big{background:var(--fg)}
+
+/* other projects */
+.po-h{margin:28px 0 12px}
+.pos{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.po{padding:14px 15px 15px}
+.po b{display:block;font-weight:500;font-size:15px}
+.po em{display:block;font-style:normal;font-size:12.5px;color:var(--t3);margin-top:1px}
+.po p{color:var(--t2);font-size:13.5px;line-height:1.45;margin-top:8px}
+
+/* career journey, drawn to scale; it stretches to fill its panel */
+#journey .bd{min-height:calc(100% - 60px);display:flex;flex-direction:column}
+.chart{position:relative;flex:1 1 auto;min-height:600px;margin-top:2px;--H:calc(100% - 22px)}
+.yr{position:absolute;left:40px;right:0;top:calc(10px + var(--t) * var(--H));border-top:1px solid var(--line)}
+.yr span{position:absolute;left:-40px;top:-8px;font-family:var(--mono);font-size:11px;line-height:16px;color:var(--t3)}
+.nowl{position:absolute;left:40px;right:0;top:calc(10px + var(--t) * var(--H));border-top:1px dashed var(--acc-d);z-index:2;pointer-events:none}
+.nowl span{position:absolute;left:-40px;top:-8px;font-family:var(--mono);font-size:10px;line-height:16px;letter-spacing:.06em;text-transform:uppercase;color:var(--acc)}
+.lane{position:absolute;left:52px;width:34px;top:calc(10px + var(--t) * var(--H) + 2px);height:calc(var(--h) * var(--H) - 4px);z-index:1;border-radius:8px;corner-shape:squircle;background:repeating-linear-gradient(315deg,color-mix(in oklab,var(--acc-d) 42%,transparent) 0 1px,transparent 0 50%) 0 0/7px 7px,color-mix(in oklab,var(--acc-d) 16%,var(--fg));box-shadow:0 0 0 .75px color-mix(in oklab,var(--acc-d) 40%,transparent) inset;display:flex;align-items:flex-end;justify-content:center;padding:10px 0;transition:filter .15s}
+.lane:hover{filter:brightness(1.15)}
+.lane span{writing-mode:vertical-rl;transform:rotate(180deg);font-size:12px;font-weight:500;color:var(--t1);white-space:nowrap}
+.job{position:absolute;z-index:1;left:98px;right:0;top:calc(10px + var(--t) * var(--H) + 2px);height:calc(var(--h) * var(--H) - 4px);padding:0 13px;border-radius:12px;overflow:hidden;container-type:size}
+.job .in{height:100%;padding:10px 0;display:flex;flex-direction:column;justify-content:space-between;gap:4px}
+.job .tt b{display:block;font-weight:500;font-size:14px;line-height:1.3}
+.job .tt span{display:block;font-size:13px;line-height:1.35;color:var(--t2);margin-top:1px}
+.job .dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--t3);white-space:nowrap}
+@container (max-height:64px){
+  .job .in{padding:0;flex-direction:row;align-items:center;justify-content:flex-start;gap:10px}
+  .job .tt{display:flex;align-items:baseline;gap:8px;min-width:0}
+  .job .tt b,.job .tt span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin:0}
+  .job .tt b{flex:none;max-width:100%}
+  .job .dt{margin-left:auto;padding-left:6px}}
+@container (max-height:64px) and (max-width:300px){.job .dt{display:none}}
+@container (max-height:64px) and (max-width:250px){.job .tt span{display:none}}
+.ms{position:absolute;z-index:1;left:98px;right:0;top:calc(10px + var(--t) * var(--H) - 9px + var(--dy,0px));height:18px;display:flex;align-items:center;gap:9px;padding-left:2px;font-size:12.5px;color:var(--t2);white-space:nowrap;overflow:hidden}
+.ms::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--acc-d);box-shadow:0 0 0 3px color-mix(in oklab,var(--acc-d) 22%,transparent)}
+.ms em{margin-left:auto;font-style:normal;font-family:var(--mono);font-size:10.5px;color:var(--t3)}
+button.ms:hover{color:var(--t1)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span{font-size:13px;padding:4px 9px;border-radius:7px;background:var(--lift);box-shadow:var(--sh-card);color:var(--t2)}
+.legend{margin-top:14px;font-size:12px;color:var(--t3)}
+
+/* skills */
+.skg{padding:15px 16px 16px;margin-bottom:10px}
+.skg h3{font-size:15px;font-weight:500;margin-bottom:3px}
+.skg>p{font-size:13.5px;color:var(--t3);margin-bottom:12px;line-height:1.45}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chips span{font-size:13.5px;padding:5px 10px;border-radius:8px;corner-shape:squircle;background:var(--fg);box-shadow:var(--sh-card);color:var(--t1)}
+
+/* ideas I'm exploring, shown as recordings */
+.idea{padding:8px;margin-bottom:14px}
+.stage{position:relative;aspect-ratio:16/10;border-radius:10px;corner-shape:squircle;overflow:hidden;background:var(--bg);box-shadow:0 0 0 .5px var(--line)}
+.stage video,.media>video{display:block;width:100%;height:100%;object-fit:cover;object-position:top center}
+.idea .t{padding:12px 8px 6px;display:grid;gap:3px}
+.idea .t b{font-weight:500;font-size:15.5px}
+.idea .t p{grid-column:1;color:var(--t3);font-size:13.5px;line-height:1.45;margin:0}
+
+
+/* contact */
+.clock,.ticker{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.ctc h2{font-size:26px;font-weight:500;line-height:1.2;letter-spacing:-.015em;margin:2px 0 12px;text-wrap:balance}
+.ctc p{color:var(--t2)}
+.mail{display:flex;align-items:center;gap:10px;padding:6px 6px 6px 14px;margin:22px 0 12px}
+.mail span{flex:1;min-width:0;font-family:var(--mono);font-size:13px;color:var(--t1);user-select:all;overflow-wrap:anywhere}
+.mail .sb{height:32px}
+.foot{margin-top:40px;font-family:var(--mono);font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--t3)}
+
+/* phones: nav moves to the bottom, panels snap with the next one peeking */
+@media (max-width:700px){
+  :root{--gut:max(16px,env(safe-area-inset-left,0px));--gut-r:max(16px,env(safe-area-inset-right,0px))}
+  .bar{order:2;height:56px;gap:12px}
+  .status,.tools .mail-b{display:none}
+  .map{flex:1;justify-content:center;gap:6px;height:auto;padding:0;background:none;box-shadow:none}
+  .seg{flex:none;width:6px;height:6px;border-radius:3px;background:var(--line-2);transition:width .35s var(--sheet),background .35s var(--ease)}
+  .seg span,.lens{display:none}
+  .seg.cur{width:18px;background:var(--t2)}
+  .seg.ping::after{display:none}
+  .row{gap:12px;padding-block:14px 4px;scroll-snap-type:x mandatory}
+  .p{--pw:min(var(--w),calc(100vw - 46px))}
+  .hd{padding:0 18px}
+  .bd{padding:4px 18px 24px}
+  .sc{padding:60px 18px 100px}
+}
+@media (max-width:420px){.who b{font-size:14px}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition-duration:.01ms!important}}
+</style>
+
+<div class="app">
+  <header class="bar">
+    <div class="who"><b>Maddox Nehls</b><span class="status"><i></i>Software engineer</span></div>
+    <nav class="map" id="map" aria-label="Sections"><i class="lens" id="lens"></i></nav>
+    <div class="tools">
+      <button class="sb mail-b" id="mailTop" type="button">Resume</button>
+      <button class="sb sq" id="theme" type="button" aria-label="Switch light or dark"><svg class="i" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5.5"/><path d="M8 2.5v11a5.5 5.5 0 0 0 0-11z" fill="currentColor" stroke="none"/></svg></button>
+      <button class="sb ar" id="prev" type="button" aria-label="Previous panel"><svg class="i" viewBox="0 0 14 14"><path d="M8.5 3.5 5 7l3.5 3.5"/></svg></button>
+      <button class="sb ar" id="next" type="button" aria-label="Next panel"><svg class="i" viewBox="0 0 14 14"><path d="M5.5 3.5 9 7l-3.5 3.5"/></svg></button>
+    </div>
+  </header>
+  <main class="row" id="row"></main>
+</div>
+
+<script>
+/* ---------- content ---------- */
+const PH = t => `<span class="ph">${t}</span>`;
+const ICON = {
+  tandem: '<circle cx="6" cy="8" r="4.25"/><circle cx="10" cy="8" r="4.25"/>',
+  tracewright: '<path d="M1.75 12 5.5 6.5l3 3.25L14.25 4"/><circle cx="5.5" cy="6.5" r="1.1"/><circle cx="8.5" cy="9.75" r="1.1"/>',
+  undercut: '<path d="M2 8.6V3a1 1 0 0 1 1-1h5.6l5.6 5.6-6.6 6.6z"/><circle cx="5.4" cy="5.4" r="1"/>',
+  kiln: '<path d="M3 14V8.5a5 5 0 0 1 10 0V14M1.5 14h13M6.5 14v-2.5a1.5 1.5 0 0 1 3 0V14"/>',
+  witness: '<path d="M1.75 8S4.25 3.5 8 3.5 14.25 8 14.25 8 11.75 12.5 8 12.5 1.75 8 1.75 8z"/><circle cx="8" cy="8" r="1.9"/>',
+  "probable-cause": '<circle cx="7" cy="7" r="4.5"/><path d="m10.4 10.4 3.6 3.6"/>',
+  school: '<path d="M1.5 6 8 3l6.5 3L8 9z"/><path d="M4 7.3v3.4c1.2 1 2.6 1.5 4 1.5s2.8-.5 4-1.5V7.3"/>',
+  work: '<rect x="2" y="5" width="12" height="8.5" rx="1.5"/><path d="M5.5 5V3.5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1V5"/>',
+};
+const G = id => `<span class="lg"><svg viewBox="0 0 16 16" aria-hidden="true">${ICON[id]}</svg></span>`;
+const SVG = {
+  gh: '<svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M8 .2a8 8 0 0 0-2.5 15.6c.4 0 .5-.2.5-.4v-1.5c-2.2.5-2.7-1-2.7-1-.4-.9-.9-1.2-.9-1.2-.7-.5.1-.5.1-.5.8.1 1.2.8 1.2.8.7 1.3 1.9.9 2.3.7.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.9.3-1.6.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8a7.5 7.5 0 0 1 4 0c1.5-1 2.2-.8 2.2-.8.4 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.8-3.6 4 .3.3.6.8.6 1.5v2.2c0 .2.1.5.6.4A8 8 0 0 0 8 .2z"/></svg>',
+  l: '<svg class="i" viewBox="0 0 14 14"><path d="M8.5 3.5 5 7l3.5 3.5"/></svg>',
+  r: '<svg class="i" viewBox="0 0 14 14"><path d="M5.5 3.5 9 7l-3.5 3.5"/></svg>',
+};
+const ME = { email: "maddoxmnehls@gmail.com", github: "https://github.com/MaddoxNehls", linkedin: "https://www.linkedin.com/in/maddox-nehls/" };
+const EXT = 'target="_blank" rel="noopener noreferrer"';
+
+const PROJECTS = [
+  { id: "kiln", name: "Kiln", kind: "AI model runner", year: "2026", video: "kn-tour", vcap: "Two real runs on a plain CPU, at real speed", viz: "kiln",
+    lead: "An AI model runner written from scratch in Rust, with no ML framework underneath. Its output matches Hugging Face token for token, and with 8-bit weights it keeps pace with llama.cpp on a plain CPU.",
+    result: "346 tokens a second, on par with llama.cpp", tools: ["Rust", "SIMD", "axum"],
+    built: ["The tokenizer, transformer math, cache and sampler", "Hand-written SIMD kernels and 8-bit weights", "An OpenAI-compatible API, so existing clients just work"],
+    imgs: [], links: [["Code", "https://github.com/MaddoxNehls/kiln"]],
+    how: "Everything the model needs is in Kiln itself. It reads the tokenizer and weights straight from the model files, runs all 30 transformer layers with math I wrote, and keeps a cache so each new word doesn't redo the work for the ones before it. The speed comes from hand-written AVX2 kernels and shrinking the weights to 8 or 4 bits, and a perplexity test measures how much quality each shortcut costs." },
+  { id: "tandem", name: "Tandem", kind: "Collaborative notes", year: "2026", video: "td-tour", vcap: "Two people in one note: Sam goes offline, both keep writing, and it merges on reconnect",
+    lead: "Notes you can share and edit together, even offline. When you reconnect, everyone's edits merge on their own, thanks to a sync engine I wrote from scratch that runs about 8× faster than Yjs on a real editing trace.",
+    result: "8.4× faster than Yjs", tools: ["TypeScript", "React", "WebSockets", "Postgres"],
+    built: ["The sync engine (a CRDT), from scratch", "Live cursors, share links, and a version history you can scrub", "Offline editing that merges cleanly when you're back"],
+    imgs: [["td-collab", "Editing a shared note"], ["td-history", "Version history: drag back in time, restore anything"], ["td-search", "Search by meaning, running in the browser"], ["td-offline", "Keeps working offline, then merges"]],
+    links: [["Code", "https://github.com/MaddoxNehls/tandem"]],
+    how: "Every edit is saved on your device first, so typing never waits on the network. The sync engine gives every character a permanent ID, so edits can arrive in any order and still come out the same for everyone. I benchmarked it on the real keystroke history of an academic paper, 259,778 edits: Tandem applies it in 194 ms where Yjs takes 1.6 seconds, and a single keystroke goes over the wire in 37 bytes." },
+  { id: "tracewright", name: "Tracewright", kind: "Debugging AI agents", year: "2026", video: "tw-tour", vcap: "A real session on the live demo: open a run, step through it, compare it with the original",
+    lead: "A flight recorder for AI agents. It records every step a run takes, lines up two runs so you can see exactly where they split, and replays from any step with a fix. A CI check fails the pull request when an agent gets worse.",
+    result: "24.4k events a second on one server", tools: ["Go", "Postgres", "Next.js", "Python"],
+    built: ["A Go ingest service that slows clients down instead of falling over", "A side-by-side diff of two runs, step by step", "Replay from any step, plus a CI check for regressions"],
+    imgs: [["tw-landing", "The landing page"], ["tw-run", "One run, every step on a timeline"], ["tw-compare", "Lining up two runs to find where they split"], ["tw-overview", "Recent runs and what they cost"]],
+    links: [["Live demo", "https://tracewright-rosy.vercel.app"], ["Code", "https://github.com/MaddoxNehls/tracewright"]],
+    how: "An agent run is a tree of steps: model calls, tool calls, and the decisions in between. Tracewright stores that tree, so two runs can be lined up step by step and the first place they disagree is called out. Replay serves the early steps from the recording for free and goes live from the step you pick, so you can test a fix without paying to rerun everything. When the ingest server is full, it tells clients to back off instead of running out of memory." },
+  { id: "witness", name: "Witness", kind: "AI code review", year: "2026", video: "wt-tour", vcap: "A real review: two bugs proven with failing tests, one claim thrown out", viz: "witness",
+    lead: "An AI code reviewer that has to prove every bug it reports. It writes a test for each suspected bug, runs it in a locked-down sandbox, and only posts the bug if the test fails the way it predicted.",
+    result: "80% precision on real PRs, up from 67%", tools: ["Python", "Docker", "FastAPI", "Postgres"],
+    built: ["A locked-down sandbox with no network access", "Verdicts from real test runs, not the model's opinion", "A 55-case benchmark built from real bug fixes"],
+    imgs: [], links: [["Code", "https://github.com/MaddoxNehls/witness"]],
+    how: "A model reads the pull request and suggests what might be broken. Witness then makes it prove each claim: it writes a test that should fail on the new code and pass on the old code, and runs both in a Docker sandbox with no network. Only claims whose test behaves as predicted get posted, each with the test and a fix that was checked the same way. On 10 real open-source pull requests, this threw out three made-up bugs without losing a real one." },
+  { id: "probable-cause", name: "Probable Cause", kind: "Search over crash reports", year: "2026", video: "pc-tour", vcap: "Two real searches over the crash reports, at real speed", viz: "pc",
+    lead: "Ask questions about 31,000 plane crash investigations and get answers that cite the actual reports. I tested 36 search setups against 289 questions, and the winner took accuracy from 0.52 to 0.91.",
+    result: "0.91 search accuracy, up from 0.52", tools: ["Python", "Postgres", "pgvector", "Docker"],
+    built: ["A 289-question test set to compare search setups fairly", "A check on every sentence's citation before it's shown"],
+    imgs: [["pc-type", "Search accuracy by question type"], ["pc-grid", "Every search setup I compared"]],
+    links: [["Code", "https://github.com/MaddoxNehls/probable-cause"]],
+    how: "The data is the NTSB's 561 MB database of every US aviation accident investigation since 2008. Just reading it was the first trap: the usual Python reader silently garbled 17.5% of the reports, so I read it another way. Most of the accuracy gain came from rewriting questions into filters like dates and aircraft types, not from fancier chunking. Every sentence in an answer is checked against the report it cites before it's shown." },
+  { id: "undercut", name: "Undercut", kind: "Price tracking", year: "2026", video: "uc-tour", vcap: "A watched hotel price, its history, the alerts, and which sites route to the home collector",
+    lead: "A price tracker for sites that block bots. It started as a way to catch cheap Cancun resort prices. It learns which sites need a home connection, and it only alerts when two checks agree, so a price that flickers for an hour never pings you.",
+    result: "0 alerts from flickering prices", tools: ["TypeScript", "Playwright", "Postgres"],
+    built: ["A collector on a home connection for sites that block the cloud", "Routing that learns which sites need it", "Scrapers that repair themselves after a site redesign"],
+    imgs: [["uc-watch", "A watched price and its history"], ["uc-picker", "Picking which price on the page to track"], ["uc-alerts", "Alert rules"], ["uc-devices", "Collectors, and which sites route where"]],
+    links: [["Code", "https://github.com/MaddoxNehls/undercut"]],
+    how: "Travel sites block requests from cloud servers, so Undercut runs a small collector with a real browser on your home computer. The server tracks how often each site blocks the cloud and moves that site to home collectors on its own, checking back later in case the block lifts. Jobs are handed out through Postgres so each one runs exactly once, even with many collectors pulling at the same time." },
+];
+const VIZ = {
+  kiln: () => `<div class="viz"><span class="vt">Decode speed · 8 threads · plain CPU</span><div class="vbig">346<small>tokens a second</small></div>
+    <div class="bars">${[["Kiln, 32-bit", 84, ""], ["Kiln, 4-bit", 291, ""], ["Kiln, 8-bit", 346, "me"], ["llama.cpp, 8-bit", 350, "ref"]].map(([n, v, c]) => `<div class="${c}"><span>${n}</span><u style="--v:${(v / 350 * 100).toFixed(1)}%"></u><em>${v}</em></div>`).join("")}</div></div>`,
+  witness: () => `<div class="viz"><span class="vt">A claim Witness refused to post</span>
+    <p class="claim">“<code>Invoice.subtotal</code> now returns the integer 0 instead of a Decimal.”</p>
+    <ol class="steps"><li><i>1</i>Wrote a test</li><li><i>2</i>Ran it in the sandbox</li><li class="ok"><i>3</i>Test passed · claim dropped</li></ol></div>`,
+  pc: () => `<div class="viz"><span class="vt">Search accuracy · recall@10 · 289 test questions</span><div class="vbig">0.91<small>up from 0.52</small></div>
+    <div class="bars">${[["Plain search", .52, ""], ["Rewritten to filters", .91, "me"]].map(([n, v, c]) => `<div class="${c}"><span>${n}</span><u style="--v:${v * 100}%"></u><em>${v.toFixed(2)}</em></div>`).join("")}</div></div>`,
+};
+// the hardest bug from each project, told short
+const BUGS = {
+  tracewright: { title: "The update that vanished", sub: "Two writers, one record, and totals that were quietly wrong.",
+    parts: [["What happened.", "Under load, two servers sometimes updated the same run's totals at the same moment. Whoever saved last won, and nothing errored."],
+      ["The fix.", "A Postgres lock per run, taken in sorted order so two writers can never deadlock. A test that fires concurrent writes now passes every time."]] },
+  kiln: { title: "Hand-tuned, and 4× slower", sub: "My “fast” math loop lost to the simple one, until I counted registers.", big: ["4×", "slower than the plain version, at first"],
+    parts: [["Why.", "The loop kept 12 running totals. The compiler couldn't fit them in registers, so it kept spilling them to memory."],
+      ["The fix.", "I laid it out by hand with CPU intrinsics: 12 totals plus 4 inputs is exactly the 16 registers the CPU has. Prompt processing ended up 3× faster."]] },
+  "probable-cause": { title: "The file reader that lied", sub: "A popular library quietly mangled 17.5% of the crash reports.", big: ["17.5%", "of report narratives, silently corrupted"],
+    parts: [["What happened.", "The pure-Python reader I started with turned curly quotes into control characters. No error, no warning."],
+      ["The fix.", "I switched to mdbtools in a sandboxed container and rebuilt the import on top of it. Lesson: look at the data before trusting any number built on it."]] },
+  witness: { title: "The bug report nobody had to read", sub: "A specific, plausible, wrong claim, caught before it was posted.",
+    parts: [["What happened.", "The model claimed Invoice.subtotal now returned the integer 0 instead of a Decimal."],
+      ["What Witness did.", "It wrote a test for the claim and ran it. The test passed, because sum() was given a Decimal start value all along, so the claim was dropped."]] },
+  tandem: { title: "Typing where the cursor used to be", sub: "A bug no unit test could see, and two real browsers could.",
+    parts: [["Why.", "The browser's selection runs ahead of the editor's state. A remote edit landing in between wrote the old selection back."],
+      ["The fix.", "Sync the browser's selection into the editor before acting on anything. Only a test driving two real browsers caught it."]] },
+  undercut: { title: "$499 for an hour", sub: "Why my price tracker ignores the best deal it ever saw.", seq: true,
+    parts: [["What happened.", "Real resort prices went $606, $499, $517, $491. A simple tracker alerts on $499, and by the time you look, it's gone."],
+      ["The rule.", "Wait for two checks in a row to agree within 0.5%. $489 confirms $491, and it alerts once."]] },
+};
+
+// to scale, by month
+const NOW = 2026 + 9.9 / 12;
+const M = (y, m) => y + (m - 1) / 12, E = (y, m) => y + m / 12;
+const EXP = [
+  { id: "avibe", t: "Full Stack Engineer", org: "AVIBE", type: "Full-time", where: "Beaverton, OR · Hybrid", s: M(2026, 3), e: NOW, d: "Mar 2026 — Now",
+    did: ["Build and maintain production web apps for several clients, from database design to UI", "Work across modern Laravel and Vue code and long-running ColdFusion systems", "Ship staff portals, enrollment systems, reporting tools and admin dashboards"] },
+  { id: "ally", t: "Software Engineer Intern", org: "Ally", type: "Internship", where: "Charlotte, NC", s: M(2025, 4), e: E(2025, 8), d: "Apr — Aug 2025",
+    did: ["Built customer-facing features for Ally's banking apps in React, TypeScript, Java and Spring Boot", "Fixed production bugs and security vulnerabilities in a highly regulated codebase", "Worked in Agile sprints with regular code review"] },
+  { id: "intel", t: "Technical Solutions Analyst", org: "Intel", where: "Portland, OR", s: M(2024, 4), e: E(2024, 9), d: "Apr — Sep 2024",
+    did: ["Tracked down software and driver compatibility issues across Intel processor platforms", "Turned performance data and user feedback into product fixes", "Trained non-technical teams on how Intel hardware and software fit together"] },
+  { id: "missionnext", t: "Software Developer Intern", org: "MissionNext", type: "Internship", s: M(2023, 11), e: E(2024, 2), d: "Nov 2023 — Feb 2024",
+    did: ["Built backend features for a job-matching platform in PHP and Laravel", "Rewrote slow MySQL and PostgreSQL queries", "Worked with support to fix bugs users actually hit"] },
+  { id: "careervillage", t: "Full Stack Engineer Intern", org: "CareerVillage.org", type: "Internship", where: "Remote", s: M(2022, 9), e: E(2023, 9), d: "Sep 2022 — Sep 2023",
+    did: ["Built features from user feedback, with React and Node.js up front and Python behind", "Used SQL on engagement data to help pick what to build next", "Wrote guides for students on getting into software engineering"] },
+  { id: "pcc-ta", t: "Teaching Assistant", full: "Engineering Teaching Assistant", org: "Portland Community College", short: "Portland CC", type: "Part-time", where: "Portland, OR", s: M(2022, 1), e: E(2022, 6), d: "Jan — Jun 2022",
+    did: ["Taught object-oriented programming and algorithms in C++ to 50+ engineering students", "Ran code reviews and helped improve the course materials"] },
+];
+const EDU = [
+  { id: "oregon-state", t: "B.S. Computer Science", org: "Oregon State University", short: "Oregon State", s: M(2024, 9), e: E(2026, 6), d: "2024 — 2026" },
+  { id: "pcc", t: "University transfer, Computer Science", org: "Portland Community College", short: "Portland CC", s: M(2022, 1), e: E(2024, 6), d: "2022 — 2024" },
+];
+// milestones sit in the gaps between job cards so they never cover one
+const MILES = [
+  { at: M(2025, 4), dy: 13, t: "Top finish at a hackathon", d: "Mar 2025" },
+  { at: M(2024, 3) + .5 / 12, t: "Launched Pulse Floor, a live multiplayer game", d: "Apr 2024" },
+  { at: M(2022, 8), t: "Built a self-driving RC car", d: "Jul 2022" },
+];
+const OTHER = [
+  { name: "NehlsNav", kind: "Ride sharing", what: "Ride sharing with live GPS tracking on the map." },
+  { name: "Evently", kind: "Events", what: "Create, sell and manage events, with sign-in and payments." },
+  { name: "Pricewise", kind: "Price tracking", what: "Tracks product prices across stores, scraping them with Bright Data." },
+  { name: "FormBuilder", kind: "Forms", what: "Build a form, customize it, and share it with a link." },
+  { name: "CodeToImage", kind: "Dev tool", what: "Turns code snippets into clean, shareable images." },
+];
+const SKILLS = [
+  ["Front end", "Fast, accessible interfaces people enjoy using.", ["React", "Next.js", "TypeScript", "JavaScript", "Vue", "Tailwind CSS", "shadcn/ui", "HTML & CSS", "Three.js", "GSAP", "Accessibility"]],
+  ["Back end", "APIs and services that hold up under real traffic.", ["Node.js", "Laravel", "PHP", "Python", "FastAPI", "Java", "Spring Boot", "Go", "REST", "WebSockets", "Stripe", "Auth"]],
+  ["Data", "Schemas, queries, and the indexes that make them quick.", ["PostgreSQL", "MySQL", "MongoDB", "Prisma", "pgvector", "Query tuning", "Web scraping"]],
+  ["Shipping", "Getting code to production and keeping it healthy.", ["Docker", "Git", "GitHub Actions", "CI/CD", "Vercel", "Playwright", "Testing"]],
+  ["AI", "Practical AI features, measured instead of guessed.", ["LLM APIs", "RAG & search", "Evals", "Agents", "On-device models"]],
+  ["Also", "", ["Rust", "C++", "ColdFusion", "Google Maps API", "Agile", "Code review", "Teaching"]],
+];
+const IDEAS = [
+  { id: "netcode", t: "Hiding 150 ms of lag", p: "Client prediction and server reconciliation, the trick multiplayer games use. Your moves show up instantly and the server still has the final say." },
+  { id: "sheet", t: "A spreadsheet that only redoes what changed", p: "Formulas form a dependency graph. An edit recalculates just the cells downstream, in order, and refuses to create a loop." },
+  { id: "stream", t: "Rendering half-finished JSON", p: "An AI answer streams in as JSON. A forgiving parser repairs every partial chunk, so the page fills in as the words arrive." },
+  { id: "raft", t: "Picking a new leader when one dies", p: "Raft leader election, slowed down. Five servers notice the leader is gone, vote, and agree on a new one in about two seconds." },
+];
+const img = id => `img/${id}.webp`;
+
+/* ---------- panel bodies ---------- */
+const START = new Date(2017, 0, 1).getTime();
+const ABOUT = `<div class="photo"><img src="img/me.webp" alt="Maddox Nehls"></div>
+  <p class="hello">Hey, I'm Maddox. I build web apps end to end, from the database to the last pixel.</p>
+  <p class="sub">I care about the details you feel but don't notice: a page that's ready before you blink, a save that never loses your work. I've worked at a bank, a nonprofit, a job board and Intel, and I taught code before any of that.</p>
+  <div class="acts"><a class="btn" href="${ME.github}" ${EXT}>${SVG.gh} GitHub</a><button class="btn" type="button" data-copy>Copy email</button></div>
+  <div class="facts">${[["Role", "Software engineer. I own features from the schema to the UI."], ["Focus", "Making everyday software feel fast and dependable."], ["Stack", "React, TypeScript, Next.js, Laravel, Python, Postgres, and whatever the job needs."], ["Superpower", "Finding the bug everyone else gave up on."], ["Location", "Beaverton, Oregon. Open to remote."], ["Writing code for", `<span class="ticker">9.82000000</span> years`]].map(([k, v]) => `<div class="fact"><div class="k">${k}</div><p>${v}</p></div>`).join("")}</div>`;
+
+const PROJ = PROJECTS.map((p, i) => `<button class="pj card tap" type="button" data-proj="${i}" aria-label="Open ${p.name}">
+  <div class="media">${p.video ? `<video src="vid/${p.video}.mp4" poster="vid/${p.video}.jpg" muted loop playsinline preload="none" aria-label="${p.name}, a short recording"></video>` : p.viz ? VIZ[p.viz]() : `<img src="${img(p.imgs[0][0])}" alt="" ${i > 1 ? 'loading="lazy"' : ""}>`}</div>
+  ${!p.viz && !p.video && p.imgs.length > 1 ? `<div class="th">${p.imgs.map(([m], j) => `<span class="${j ? "" : "on"}" data-src="${img(m)}"><img src="${img(m)}" alt="" loading="lazy"></span>`).join("")}</div>` : ""}
+  <div class="cap">${G(p.id)}<b>${p.name}</b><em>${p.kind}</em></div></button>`).join("")
+  + `<div class="k po-h">Other things I've built</div><div class="pos">${OTHER.map(o => `<div class="po card"><b>${o.name}</b><em>${o.kind}</em><p>${o.what}</p></div>`).join("")}</div>`;
+
+// career journey: school on the left rail, jobs and milestones to the right, all to scale
+const Y1 = 2027, Y0 = 2022, f = v => ((Y1 - v) / (Y1 - Y0)).toFixed(4), hh = (a, b) => ((b - a) / (Y1 - Y0)).toFixed(4);
+const CHART = `<div class="chart">
+  ${Array.from({ length: Y1 - Y0 + 1 }, (_, k) => `<div class="yr" style="--t:${f(Y1 - k)}"><span>${Y1 - k}</span></div>`).join("")}
+  <div class="nowl" style="--t:${f(NOW)}"><span>Now</span></div>
+  ${EDU.map((s, i) => `<button class="lane" type="button" data-edu="${i}" aria-label="${s.t}, ${s.org}" style="--t:${f(s.e)};--h:${hh(s.s, s.e)}"><span>${s.short}</span></button>`).join("")}
+  ${EXP.map((s, i) => `<button class="job card tap" type="button" data-exp="${i}" style="--t:${f(s.e)};--h:${hh(s.s, s.e)}"><div class="in">
+      <div class="tt"><b>${s.t}</b><span>${s.short || s.org}</span></div><div class="dt">${s.d}</div></div></button>`).join("")}
+  ${MILES.map(m => `<div class="ms" style="--t:${f(m.at)};--dy:${m.dy || 0}px">${m.t}<em>${m.d}</em></div>`).join("")}
+  </div><p class="legend">Drawn to scale. Tap a role or a school for more.</p>`;
+
+const EXPERIMENTS = IDEAS.map(x => `<div class="idea card"><div class="stage"><video src="vid/x-${x.id}.mp4" poster="vid/x-${x.id}.jpg" muted loop playsinline preload="none" aria-label="${x.t}, a short recording"></video></div>
+  <div class="t"><b>${x.t}</b><p>${x.p}</p></div></div>`).join("");
+
+const SKILLBOX = SKILLS.map(([g, p, xs]) => `<div class="skg card"><h3>${g}</h3>${p ? `<p>${p}</p>` : ""}<div class="chips">${xs.map(x => `<span>${x}</span>`).join("")}</div></div>`).join("");
+
+const CONTACT = `<div class="ctc"><h2>Get in touch.</h2><p>Happy to talk about a role, something I built, or code in general. Email is the best way to reach me.</p>
+  <div class="mail card"><span id="mailText">${ME.email}</span><button class="sb" type="button" data-copy>Copy</button></div>
+  <div class="acts"><a class="btn" href="${ME.github}" ${EXT}>${SVG.gh} GitHub</a><a class="btn" href="${ME.linkedin}" ${EXT}>LinkedIn</a><button class="btn" type="button" data-resume>Resume</button></div>
+  <div class="frs" style="margin-top:26px"><div class="fr"><span>Local time</span><i></i><span><span class="clock">--:--</span> · Beaverton</span></div><div class="fr"><span>Replies</span><i></i><span>Usually within a day</span></div></div>
+  <p class="foot">© 2026 Maddox Nehls</p></div>`;
+
+const PANELS = [
+  { id: "about", label: "About me", short: "About", w: 400, body: ABOUT },
+  { id: "projects", label: "Projects", short: "Projects", w: 520, wOpen: 780, meta: "06 featured", body: PROJ, sheet: "project" },
+  { id: "journey", label: "Career journey", short: "Journey", w: 500, meta: "Coding since 2017", body: CHART, sheet: "details" },
+  { id: "experiments", label: "Ideas I'm exploring", short: "Ideas", w: 560, meta: "Works in progress", body: EXPERIMENTS },
+  { id: "skills", label: "Skills", short: "Skills", w: 420, body: SKILLBOX },
+  { id: "contact", label: "Contact", short: "Contact", w: 380, wOpen: 700, sheet: "resume", body: CONTACT },
+];
+
+/* ---------- sheet contents ---------- */
+const frs = rows => `<div class="frs">${rows.map(([k, v]) => `<div class="fr"><span>${k}</span><i></i><span>${v}</span></div>`).join("")}</div>`;
+const list = xs => `<ul class="ul">${xs.map(x => `<li>${x}</li>`).join("")}</ul>`;
+const bugBlock = n => !n ? "" : `<h4 class="sec">Hardest bug</h4><div class="bug card"><h5>${n.title}</h5><p>${n.sub}</p>
+  ${n.big ? `<div class="big card"><b>${n.big[0]}</b><span>${n.big[1]}</span></div>` : ""}
+  ${n.seq ? `<div class="seq"><span>$606</span><i>→</i><span class="x">$499</span><i>→</i><span>$517</span><i>→</i><span>$491</span><i>→</i><span class="ok">$489 · alert</span></div>` : ""}
+  <div class="body">${n.parts.map(([k, v]) => `<p><b>${k}</b> ${v}</p>`).join("")}</div></div>`;
+const projSheet = p => {
+  const live = p.links.find(([t]) => t === "Live demo"), code = p.links.find(([t]) => t === "Code");
+  // the recording comes first and starts playing as the sheet opens; then the result chart, then screenshots
+  const figs = (p.video ? [`<figure class="fig"><div class="media"><video src="vid/${p.video}.mp4" poster="vid/${p.video}.jpg" muted loop playsinline controls ${reduce ? 'preload="none"' : "autoplay"}></video></div><figcaption>${p.vcap}</figcaption></figure>`] : [])
+    .concat(p.viz ? [`<figure class="fig"><div class="media">${VIZ[p.viz]()}</div><figcaption>${{ kiln: "Decode speed against llama.cpp, same machine", witness: "The real claim from the demo, and what happened to it", pc: "The headline result" }[p.viz]}</figcaption></figure>`] : [])
+    .concat(p.imgs.map(([m, c]) => `<figure class="fig"><div class="media"><img src="${img(m)}" alt="${c}" loading="lazy"></div><figcaption>${c}</figcaption></figure>`)).join("");
+  return `<div class="over k" style="margin:0 0 10px">${G(p.id)} ${p.kind}</div><h3>${p.name}</h3><p class="lead">${p.lead}</p>
+    ${frs([["Result", p.result], ["Built with", p.tools.join(", ")]].concat(live ? [["Live", `<a href="${live[1]}" ${EXT}>Open demo ↗</a>`]] : []).concat(code ? [["Code", `<a href="${code[1]}" ${EXT}>GitHub ↗</a>`]] : []))}
+    ${figs}
+    <h4 class="sec">How it works</h4><p class="lead" style="margin-bottom:0">${p.how}</p>
+    <h4 class="sec">What I built</h4>${list(p.built)}
+    ${bugBlock(BUGS[p.id])}
+    <div class="links">${p.links.map(([t, u]) => `<a class="btn" href="${u}" ${EXT}>${t} ↗</a>`).join("")}</div>`;
+};
+// the resume: the page drawn as vector art, its links laid over it, plus the real PDF to open or save
+const RESUME_PDF = "resume/Maddox_Nehls_Resume.pdf";
+const RESUME_LINKS = [["My portfolio", "https://maddoxnehls.vercel.app/", 34.25, 5.42, 8.71, 1.57], ["LinkedIn", ME.linkedin, 63.14, 5.42, 6.16, 1.57], ["GitHub", ME.github, 70.4, 5.42, 5.31, 1.57],
+  ["Kiln on GitHub", "https://github.com/MaddoxNehls/kiln", 86.95, 52.73, 6.45, 1.75], ["Tandem on GitHub", "https://github.com/MaddoxNehls/tandem", 86.95, 60.65, 6.45, 1.75],
+  ["Tracewright live demo", "https://tracewright-rosy.vercel.app", 84.03, 67.21, 9.37, 1.75], ["Undercut on GitHub", "https://github.com/MaddoxNehls/undercut", 86.95, 75.14, 6.45, 1.75]];
+let downloads = null;
+const resumeSheet = () => `<div class="over k" style="margin:0 0 10px">Resume</div><h3>Maddox Nehls</h3>
+  <p class="lead" style="margin-bottom:0">One page: experience, projects and skills. The links on it work.</p>
+  <div class="links" style="margin:18px 0 24px"><button class="btn" type="button" data-dl ${downloads || !window.claude ? "" : "hidden"}>Download PDF</button><a class="btn" href="${RESUME_PDF}" ${EXT}>Open PDF ↗</a></div>
+  <figure class="fig"><div class="media rs"><img src="resume/page1.svg" alt="Maddox Nehls, one-page resume">${RESUME_LINKS.map(([t, u, x, y, w, h]) =>
+    `<a class="hot" href="${u}" ${EXT} aria-label="${t}" title="${t}" style="left:${x}%;top:${y}%;width:${w}%;height:${h}%"></a>`).join("")}</div></figure>`;
+async function saveResume(btn) {
+  if (!downloads) { const a = document.createElement("a"); a.href = RESUME_PDF; a.download = "Maddox_Nehls_Resume.pdf"; document.body.appendChild(a); a.click(); a.remove(); return; }
+  const label = btn.textContent;
+  try {
+    const blob = await (await fetch(RESUME_PDF)).blob();
+    await downloads.save({ filename: "Maddox_Nehls_Resume.pdf", data: blob });
+    btn.textContent = "Saved"; setTimeout(() => (btn.textContent = label), 1600);
+  } catch (e) { if (e && e.code !== "declined" && e.code !== "rate_limited") btn.hidden = true; }
+}
+try { window.claude?.use?.("downloads").then(d => { downloads = d; if (d) document.querySelectorAll("[data-dl]").forEach(b => (b.hidden = false)); }, () => {}); } catch (_) {}
+const tags = xs => xs.length ? `<h4 class="sec">Skills</h4><div class="tags">${xs.map(x => `<span>${x}</span>`).join("")}</div>` : "";
+const JOB_SKILLS = { avibe: ["Laravel", "Vue", "PHP", "ColdFusion", "SQL"], ally: ["React", "TypeScript", "Java", "Spring Boot"], intel: ["Debugging", "Drivers", "Data analysis", "Training"], missionnext: ["PHP", "Laravel", "MySQL", "PostgreSQL"], careervillage: ["React", "Node.js", "Python", "SQL"], "pcc-ta": ["C++", "Algorithms", "Code review", "Teaching"] };
+const expSheet = s => `<div class="over k" style="margin:0 0 10px">${G("work")} Career journey</div><h3>${s.full || s.t}</h3>
+  ${frs([["Company", s.org], ["When", s.d]].concat(s.type ? [["Type", s.type]] : []).concat(s.where ? [["Where", s.where]] : []))}
+  <h4 class="sec">What I did</h4>${list(s.did)}${tags(JOB_SKILLS[s.id] || [])}`;
+const eduSheet = s => `<div class="over k" style="margin:0 0 10px">${G("school")} Education</div><h3>${s.org}</h3>
+  ${frs([["Program", s.t], ["When", s.d]])}
+  ${s.id === "pcc" ? `<p class="lead" style="margin-top:22px">While I was there I also worked as a teaching assistant, teaching C++ to other engineering students.</p>` : ""}`;
+
+/* ---------- render ---------- */
+const row = document.getElementById("row"), map = document.getElementById("map"), lens = document.getElementById("lens");
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+row.innerHTML = PANELS.map((P, i) => `<section class="p" id="${P.id}" style="--w:${P.w}px;--w-open:${P.wOpen || P.w}px;--i:${i}" aria-labelledby="h-${P.id}">
+  <div class="wrap"><header class="hd"><h2 class="lbl" id="h-${P.id}">${P.label}</h2><span class="meta">${P.meta || ""}</span></header><div class="bd">${P.body}</div></div>
+  ${P.sheet ? `<div class="sheet" role="dialog" aria-label="${P.label} details" tabindex="-1" inert><div class="grab" title="Close"><i></i></div><div class="sc"><div class="sh"></div></div>
+    <div class="pill"><button class="ar pv" type="button" aria-label="Previous">${SVG.l}</button><button class="cl" type="button">Close ${P.sheet}</button><button class="ar nx" type="button" aria-label="Next">${SVG.r}</button></div></div>` : ""}
+</section>`).join("");
+map.insertAdjacentHTML("beforeend", PANELS.map((P, i) => `<button class="seg" type="button" data-i="${i}" aria-label="${P.label}"><span>${P.short}</span></button>`).join(""));
+const panels = [...row.children], segs = [...map.querySelectorAll(".seg")];
+const pad = () => parseFloat(getComputedStyle(row).paddingLeft);
+
+/* ---------- navigation ---------- */
+function goTo(i, instant) {
+  i = Math.max(0, Math.min(panels.length - 1, i));
+  row.scrollTo({ left: Math.min(panels[i].offsetLeft - pad(), row.scrollWidth - row.clientWidth), behavior: instant || reduce ? "auto" : "smooth" });
+}
+function firstVisible() {
+  const x = row.scrollLeft + pad();
+  return Math.max(0, panels.findIndex(p => p.offsetLeft + p.offsetWidth > x + 24));
+}
+document.getElementById("prev").onclick = () => { const f = firstVisible(); goTo(panels[f].offsetLeft < row.scrollLeft + pad() - 4 ? f : f - 1); };
+document.getElementById("next").onclick = () => goTo(firstVisible() + 1);
+
+// overview map: segments sized like the panels; the lens shows what's on screen
+let widths = "";
+function mapX(x) {
+  for (let i = 0; i < panels.length; i++) {
+    const p = panels[i], s = segs[i];
+    if (x <= p.offsetLeft + p.offsetWidth) return s.offsetLeft + Math.max(0, Math.min(1, (x - p.offsetLeft) / p.offsetWidth)) * s.offsetWidth;
+  }
+  const s = segs[segs.length - 1]; return s.offsetLeft + s.offsetWidth;
+}
+function contentX(mx) {
+  for (let i = 0; i < segs.length; i++) {
+    const s = segs[i], p = panels[i];
+    if (mx <= s.offsetLeft + s.offsetWidth) return p.offsetLeft + Math.max(0, Math.min(1, (mx - s.offsetLeft) / s.offsetWidth)) * p.offsetWidth;
+  }
+  return row.scrollWidth;
+}
+function sync() {
+  const w = panels.map(p => p.offsetWidth).join();
+  if (w !== widths) { widths = w; panels.forEach((p, i) => segs[i].style.setProperty("--g", p.offsetWidth)); }
+  const sl = row.scrollLeft, vw = row.clientWidth, a = sl + pad(), b = sl + vw - pad();
+  const l = mapX(a); lens.style.left = l + "px"; lens.style.width = Math.max(8, mapX(b) - l) + "px";
+  let cur = -1, best = -1;
+  panels.forEach((p, i) => {
+    const vis = Math.max(0, Math.min(b, p.offsetLeft + p.offsetWidth) - Math.max(a, p.offsetLeft)) / p.offsetWidth;
+    segs[i].classList.toggle("in", vis > .5);
+    if (vis > best + .01) { best = vis; cur = i; }
+  });
+  segs.forEach((s, i) => s.classList.toggle("cur", i === cur));
+  document.getElementById("prev").disabled = sl <= 2;
+  document.getElementById("next").disabled = sl >= row.scrollWidth - vw - 2;
+}
+let raf = 0;
+row.addEventListener("scroll", () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(sync); }, { passive: true });
+new ResizeObserver(sync).observe(row);
+panels.forEach(p => new ResizeObserver(sync).observe(p));
+
+let md = null;
+map.addEventListener("pointerdown", e => { md = { x: e.clientX, moved: false }; map.setPointerCapture(e.pointerId); });
+map.addEventListener("pointermove", e => {
+  if (!md) return;
+  if (Math.abs(e.clientX - md.x) > 4) md.moved = true;
+  if (md.moved && innerWidth > 700) { const r = map.getBoundingClientRect(); row.scrollLeft = contentX(e.clientX - r.left - map.clientLeft) - row.clientWidth / 2; }
+});
+map.addEventListener("pointerup", e => {
+  if (md && !md.moved) { const i = segs.findIndex(s => { const r = s.getBoundingClientRect(); return e.clientX >= r.left - 3 && e.clientX <= r.right + 3; }); if (i >= 0) goTo(i); }
+  md = null;
+});
+map.addEventListener("pointercancel", () => (md = null));
+
+// the wheel never moves the row sideways; only the overview bar and the arrows do.
+// over a panel it scrolls that panel (or its open sheet)
+row.addEventListener("wheel", e => {
+  if (e.ctrlKey) return;
+  const p = e.target.closest(".p");
+  if (!p || e.shiftKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) return e.preventDefault();
+  const sheet = p.classList.contains("open");
+  if (sheet && !e.target.closest(".sheet")) { e.preventDefault(); p.querySelector(".sc").scrollTop += e.deltaY; return; }
+  // a trackpad's small sideways drift would leak to the row, so apply only the vertical part
+  if (e.deltaX) { e.preventDefault(); (sheet ? p.querySelector(".sc") : p.querySelector(".wrap")).scrollTop += e.deltaY; }
+}, { passive: false });
+
+/* ---------- sheets ---------- */
+const LISTS = {
+  projects: PROJECTS.map(p => ({ id: p.id, html: () => projSheet(p), proj: p.id })),
+  contact: [{ id: "resume", html: () => resumeSheet() }],
+  journey: EXP.map(s => ({ id: s.id, html: () => expSheet(s) })).concat(EDU.map(s => ({ id: s.id, html: () => eduSheet(s) }))),
+};
+const state = {};
+function ensureVisible(p) {
+  const wide = p.classList.contains("wide") && matchMedia("(min-width:1100px)").matches;
+  const w = wide ? parseFloat(p.style.getPropertyValue("--w-open")) : p.offsetWidth;
+  const L = p.offsetLeft - pad(), R = p.offsetLeft + w + pad() - row.clientWidth;
+  const sl = row.scrollLeft;
+  if (L < sl) row.scrollTo({ left: L, behavior: reduce ? "auto" : "smooth" });
+  else if (R > sl) row.scrollTo({ left: Math.min(L, R), behavior: reduce ? "auto" : "smooth" });
+}
+// the panel widens over .5s; recompute the target every frame so the row glides with it (the last panel can't be reached until it has grown)
+function follow(p) {
+  const s0 = row.scrollLeft, t0 = performance.now(), D = 560;
+  const step = now => {
+    const k = Math.min(1, (now - t0) / D), e = 1 - Math.pow(1 - k, 3);
+    const L = p.offsetLeft - pad(), R = p.offsetLeft + p.offsetWidth + pad() - row.clientWidth;
+    const tgt = L < s0 ? L : R > s0 ? Math.min(L, R) : s0;
+    row.scrollLeft = s0 + (tgt - s0) * e;
+    if (k < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+function openSheet(pid, idx, opener) {
+  const p = document.getElementById(pid), sh = p.querySelector(".sheet"), body = sh.querySelector(".sh"), sc = sh.querySelector(".sc");
+  const items = LISTS[pid], st = state[pid] || (state[pid] = {});
+  const was = p.classList.contains("open"), dir = idx > (st.idx ?? idx) ? 1 : -1;
+  st.idx = idx;
+  if (!was) st.opener = opener || document.activeElement;
+  const fill = () => {
+    body.innerHTML = items[idx].html(); sc.scrollTop = 0;
+    sh.querySelector(".pv").hidden = idx === 0; sh.querySelector(".nx").hidden = idx === items.length - 1;
+  };
+  if (was && !reduce) {
+    body.animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: `translateX(${-dir * 14}px)` }], { duration: 140, easing: "ease-in" }).onfinish = () => {
+      fill(); body.animate([{ opacity: 0, transform: `translateX(${dir * 14}px)` }, { opacity: 1, transform: "none" }], { duration: 300, easing: "cubic-bezier(.32,.72,0,1)" });
+    };
+  } else fill();
+  p.classList.add("open"); if (PANELS.find(P => P.id === pid).wOpen) p.classList.add("wide");
+  sh.inert = false; p.querySelector(".wrap").inert = true;
+  if (!was) setTimeout(() => sh.focus({ preventScroll: true }), 60);
+  if (was || reduce) ensureVisible(p); else follow(p);
+  try { history.replaceState(null, "", "#" + items[idx].id); } catch (_) {}
+}
+function closeSheet(pid) {
+  const p = document.getElementById(pid); if (!p || !p.classList.contains("open")) return;
+  const sh = p.querySelector(".sheet");
+  p.classList.remove("open", "wide"); sh.inert = true; p.querySelector(".wrap").inert = false;
+  const o = state[pid] && state[pid].opener; if (o && document.contains(o)) o.focus({ preventScroll: true });
+  try { history.replaceState(null, "", "#" + pid); } catch (_) {}
+}
+panels.forEach(p => {
+  const sh = p.querySelector(".sheet"); if (!sh) return;
+  const pid = p.id;
+  sh.querySelector(".cl").onclick = () => closeSheet(pid);
+  sh.querySelector(".pv").onclick = () => openSheet(pid, state[pid].idx - 1);
+  sh.querySelector(".nx").onclick = () => openSheet(pid, state[pid].idx + 1);
+  // drag the top edge down to close; a tap closes too
+  const grab = sh.querySelector(".grab"); let d = null;
+  grab.addEventListener("pointerdown", e => { d = { y: e.clientY, t: performance.now(), dy: 0 }; grab.setPointerCapture(e.pointerId); sh.style.transition = "none"; });
+  grab.addEventListener("pointermove", e => { if (!d) return; d.dy = Math.max(0, e.clientY - d.y); sh.style.transform = `translateY(${d.dy}px)`; });
+  const end = () => {
+    if (!d) return; const v = d.dy / Math.max(1, performance.now() - d.t), dy = d.dy; d = null;
+    sh.style.transition = ""; sh.style.transform = "";
+    if (dy < 4 || dy > 110 || (v > .5 && dy > 24)) closeSheet(pid);
+  };
+  grab.addEventListener("pointerup", end); grab.addEventListener("pointercancel", end);
+});
+
+/* ---------- clicks ---------- */
+row.addEventListener("click", e => {
+  const t = e.target.closest("[data-proj],[data-exp],[data-edu],[data-go],[data-copy],[data-resume],[data-dl]");
+  if (!t) return;
+  if (t.dataset.proj !== undefined) openSheet("projects", +t.dataset.proj, t);
+  else if (t.dataset.exp !== undefined) openSheet("journey", +t.dataset.exp, t);
+  else if (t.dataset.edu !== undefined) openSheet("journey", EXP.length + +t.dataset.edu, t);
+  else if (t.dataset.go !== undefined) goTo(PANELS.findIndex(P => P.id === t.dataset.go));
+  else if (t.dataset.copy !== undefined) copyEmail(t);
+  else if (t.dataset.resume !== undefined) openSheet("contact", 0, t);
+  else if (t.dataset.dl !== undefined) saveResume(t);
+});
+function copyEmail(btn) {
+  const label = btn.innerHTML;
+  const done = () => { btn.textContent = "Copied"; setTimeout(() => (btn.innerHTML = label), 1600); };
+  const fallback = () => { goTo(panels.length - 1); const r = document.createRange(); r.selectNodeContents(document.getElementById("mailText")); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
+  try { navigator.clipboard.writeText(ME.email).then(done, fallback); } catch (_) { fallback(); }
+}
+document.getElementById("mailTop").onclick = e => openSheet("contact", 0, e.currentTarget);
+
+/* ---------- things that play while they're on screen ---------- */
+// project cards: screenshots advance like a short reel; hovering a thumbnail takes over
+row.querySelectorAll(".pj").forEach(card => {
+  if (card.querySelector(".viz")) { new IntersectionObserver(([en]) => en.isIntersecting && card.classList.add("seen"), { threshold: .4 }).observe(card); return; }
+  const thumbs = [...card.querySelectorAll(".th span")], main = card.querySelector(".media>img");
+  if (thumbs.length < 2) return;
+  let cur = 0, hold = false;
+  const show = j => {
+    cur = j; thumbs.forEach((x, k) => x.classList.toggle("on", k === j));
+    const src = thumbs[j].dataset.src;
+    if (main.getAttribute("src") !== src) { main.style.opacity = 0; setTimeout(() => { main.src = src; main.style.opacity = 1; }, 160); }
+  };
+  thumbs.forEach((s, j) => s.addEventListener("mouseenter", () => show(j)));
+  card.addEventListener("mouseenter", () => card.classList.add("hold"));
+  card.addEventListener("mouseleave", () => card.classList.remove("hold"));
+  thumbs.forEach(s => s.addEventListener("animationend", () => { if (card.classList.contains("play") && !card.classList.contains("hold")) show((cur + 1) % thumbs.length); }));
+  if (!reduce) new IntersectionObserver(([en]) => card.classList.toggle("play", en.isIntersecting), { threshold: .6 }).observe(card);
+});
+
+// recordings play only while they're on screen (reduced motion keeps the poster frame)
+if (!reduce) { const io = new IntersectionObserver(es => es.forEach(en => en.isIntersecting ? en.target.play().catch(() => {}) : en.target.pause()), { threshold: .35 });
+  row.querySelectorAll("video:not([controls])").forEach(v => { v.preload = "auto"; io.observe(v); }); }
+
+// years of writing code for a living, ticking
+const ticker = row.querySelector(".ticker");
+(function tickYears() { ticker.textContent = ((Date.now() - START) / 31557600000).toFixed(8); setTimeout(tickYears, reduce ? 1000 : 60); })();
+
+/* ---------- theme ---------- */
+const root = document.documentElement;
+try { const t = localStorage.getItem("mn-theme"); if (t) root.dataset.theme = t; } catch (_) {}
+document.getElementById("theme").onclick = () => {
+  const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+  root.dataset.theme = dark ? "light" : "dark";
+  try { localStorage.setItem("mn-theme", root.dataset.theme); } catch (_) {}
+};
+
+/* ---------- keys + links ---------- */
+addEventListener("keydown", e => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const open = document.querySelector(".p.open");
+  if (e.key === "Escape" && open) { closeSheet(open.id); return; }
+  if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+  const inSheet = open && open.contains(document.activeElement);
+  if (inSheet) { const st = state[open.id], n = st.idx + (e.key === "ArrowRight" ? 1 : -1); if (n >= 0 && n < LISTS[open.id].length) openSheet(open.id, n); }
+  else document.getElementById(e.key === "ArrowRight" ? "next" : "prev").click();
+  e.preventDefault();
+});
+function route() {
+  const h = decodeURIComponent(location.hash.slice(1)); if (!h) return;
+  const pi = PANELS.findIndex(P => P.id === h); if (pi >= 0) { goTo(pi, true); return; }
+  for (const pid of Object.keys(LISTS)) {
+    const k = LISTS[pid].findIndex(x => x.id === h);
+    if (k >= 0) { goTo(PANELS.findIndex(P => P.id === pid), true); openSheet(pid, k); return; }
+  }
+}
+addEventListener("hashchange", route);
+
+/* ---------- live clock ---------- */
+function tick() {
+  let t = ""; try { t = new Date().toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit", timeZone: "America/Los_Angeles" }); } catch (_) { t = new Date().toLocaleTimeString(); }
+  document.querySelectorAll(".clock").forEach(c => (c.textContent = t));
+}
+tick(); setInterval(tick, 15000);
+sync(); route();
+</script>
+</body></html>
